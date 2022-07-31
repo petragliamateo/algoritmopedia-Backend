@@ -22,7 +22,14 @@ app.get('/', (req, res) => {
   res.send('Hola');
 })
 
+
 app.get('/allposts', async (req, res) => {
+  // Backup file for test with no internet connection
+  if (Number(process.env.OFFLINE)){
+    // Backup created 31/7/2022
+    res.json(require('./backup.json'));
+    return;
+  }
   await readPosts(pool, (result) => {
     res.json(result);
   })

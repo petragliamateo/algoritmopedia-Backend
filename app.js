@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/allposts', async (req, res) => {
+app.get('/api/allposts', async (req, res) => {
   // Backup file for test with no internet connection
   if (Number(process.env.OFFLINE)){
     // Backup created 31/7/2022

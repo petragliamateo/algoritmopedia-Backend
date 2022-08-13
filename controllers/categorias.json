@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Condicionales",
+    "description": "Algoritmo de condicionales.",
+    "childrenNames": [
+      "parimpar"
+    ]
+  },
+  {
+    "name": "Entrada de datos",
+    "description": "Inputs o entrada de datos.",
+    "childrenNames": [
+      "como-calcular-la-media-geometrica-con-python",
+      "como-calcular-un-promedio-con-python"
+    ]
+  },
+  {
+    "name": "Inteligencia artifical",
+    "description": "Algoritmos de inteligencia artificial",
+    "childrenNames": [
+      "como-pasar-de-celcius-a-fahrenheit-con-una-red-neuronal"
+    ]
+  },
+  {
+    "name": "Iteración",
+    "description": "Algoritmo de iteración",
+    "childrenNames": [
+      "como-funciona-el-bucle-for",
+      "el-algoritmo-filosofico"
+    ]
+  },
+  {
+    "name": "Ordenamiento",
+    "description": "Algoritmo de ordenamiento",
+    "childrenNames": [
+      "como-hacer-el-bubble-sort-con-python"
+    ]
+  },
+  {
+    "name": "POO",
+    "description": "Programación orientada a objetos",
+    "childrenNames": [
+      "como-hacer-una-guitarra-con-poo",
+      "como-programar-un-contador-con-poo"
+    ]
+  },
+  {
+    "name": "Recursividad",
+    "description": "Algoritmo de recursividad",
+    "childrenNames": [
+      "contar-atras"
+    ]
+  }
+]

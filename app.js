@@ -6,7 +6,9 @@ app.use(cors());
 const mysql = require('mysql');
 require('dotenv').config();
 
-const { readPosts, readCopaAlgoritmopedia, readTotalPosts, readPages } = require('./operations');
+const categoryRouter = require('./controllers/categoryRouter')
+
+const { readPosts, readCopaAlgoritmopedia, readTotalPosts, readPages, readByPostName } = require('./operations');
 
 app.use(express.json());
 
@@ -35,15 +37,17 @@ app.get('/api/allposts', async (req, res) => {
   })
 })
 
-app.get('/api/copa', async (req, res) => {
-  await readCopaAlgoritmopedia(pool, (result) => {
+app.get('/api/pages', async (req, res) => {
+  await readPages(pool, (result) => {
     res.json(result);
   })
 })
 
-app.get('/api/pages', async (req, res) => {
-  await readPages(pool, (result) => {
-    res.json(result);
+app.get('/api/pages/:id', async (req, res) => {
+  // Funciona con pages/retos y pages/copa
+  const name = req.params.id;
+  await readByPostName(pool, name, (result) => {
+    res.json(...result);
   })
 })
 
@@ -52,5 +56,7 @@ app.get('/api/info', async (req, res) => {
     res.send(`Total of posts: ${result.length}`)
   })
 })
+
+app.use('/api/categorias', categoryRouter);
 
 module.exports = app; 

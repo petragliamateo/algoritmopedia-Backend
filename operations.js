@@ -16,4 +16,25 @@ async function readPosts(connection, callback){
   })
 }
 
-module.exports = { readPosts };
+async function readCopaAlgoritmopedia(connection, callback){
+  await connection.query('SELECT post_title, post_date, post_content FROM `wp_posts` WHERE post_status = "publish" AND post_name = "copa"', (error, result) => {
+    if (error) { throw error; }
+    callback(result);
+  })
+}
+
+async function readPages(connection, callback){
+  await connection.query('SELECT post_title, post_name, post_date, post_content FROM `wp_posts` WHERE post_type = "page" AND post_status = "publish"', (error, result) => {
+    if (error) { throw error; }
+    callback(result);
+  })
+}
+
+async function readTotalPosts(connection, callback){
+  await connection.query('SELECT post_title FROM `wp_posts` WHERE post_type = "post" AND post_status = "publish"', (error, result) => {
+    if (error) { throw error; }
+    callback(result);
+  })
+}
+
+module.exports = { readPosts, readCopaAlgoritmopedia, readPages, readTotalPosts };

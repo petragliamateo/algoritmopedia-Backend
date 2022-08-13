@@ -6,7 +6,7 @@ app.use(cors());
 const mysql = require('mysql');
 require('dotenv').config();
 
-const { readPosts } = require('./operations');
+const { readPosts, readCopaAlgoritmopedia, readTotalPosts, readPages } = require('./operations');
 
 app.use(express.json());
 
@@ -32,6 +32,24 @@ app.get('/api/allposts', async (req, res) => {
   }
   await readPosts(pool, (result) => {
     res.json(result);
+  })
+})
+
+app.get('/api/copa', async (req, res) => {
+  await readCopaAlgoritmopedia(pool, (result) => {
+    res.json(result);
+  })
+})
+
+app.get('/api/pages', async (req, res) => {
+  await readPages(pool, (result) => {
+    res.json(result);
+  })
+})
+
+app.get('/api/info', async (req, res) => {
+  await readTotalPosts(pool, (result) => {
+    res.send(`Total of posts: ${result.length}`)
   })
 })
 

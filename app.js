@@ -7,6 +7,7 @@ const mysql = require('mysql');
 require('dotenv').config();
 
 const categoryRouter = require('./controllers/categoryRouter')
+const usersRouter = require('./controllers/usersRouter')
 
 const { readPosts, readCopaAlgoritmopedia, readTotalPosts, readPages, readByPostName } = require('./operations');
 
@@ -58,5 +59,6 @@ app.get('/api/info', async (req, res) => {
 })
 
 app.use('/api/categorias', categoryRouter);
+app.use('/api/users', usersRouter);
 
 module.exports = app; 

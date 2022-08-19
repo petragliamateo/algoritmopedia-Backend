@@ -6,7 +6,7 @@
 const { Expo } = require('expo-server-sdk');
 require('dotenv').config();
 
-const somePushTokens = require('./controllers/usersData.json').map((obj) => obj.token);
+const somePushTokens = [].map((obj) => obj.token);
 
 // Create a new Expo SDK client
 // optionally providing an access token if you have enabled push security
